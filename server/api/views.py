@@ -1,9 +1,9 @@
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
-from .models import Product
-from .serializers import ProductSerializer
+from .models import Product, Brand, Category
+from .serializers import ProductSerializer, BrandSerializer, CategoeySerializer
 
 # Create your views here.
 @api_view()
@@ -17,7 +17,7 @@ def products(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view()
-def get_products(request):
+def get_products(request, id):
     obj = get_object_or_404(Product, id=id)
     serializer = ProductSerializer(obj)
     return Response(serializer.data, status=status.HTTP_200_OK)
@@ -44,3 +44,12 @@ def update_products(request, id):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class BrandCreateListView(generics.ListCreateAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
+
+class BrandDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer

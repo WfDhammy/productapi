@@ -75,23 +75,23 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'koyebdb',
-        'USER': 'koyeb-adm',
-        'PASSWORD': 'npg_t2BrF0cUCwvM',
-        'HOST': 'ep-square-mud-a1as11tz.ap-southeast-1.pg.koyeb.app',
-        'OPTIONS': {'sslmode': 'require'},
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'koyebdb',
+#         'USER': 'koyeb-adm',
+#         'PASSWORD': 'npg_t2BrF0cUCwvM',
+#         'HOST': 'ep-square-mud-a1as11tz.ap-southeast-1.pg.koyeb.app',
+#         'OPTIONS': {'sslmode': 'require'},
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'product.db',
+    }
+}
 
 
 # Password validation
