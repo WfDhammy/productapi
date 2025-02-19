@@ -8,10 +8,11 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'brand', '' 'description', 'display_image', 'price', 'quantity', 'uploaded_at']
+        fields = ['id', 'name', 'brand', 'category', 'description', 'display_image', 'price', 'quantity', 'uploaded_at']
         read_only_fields = ['id','uploaded_at']
 
-class CategoeySerializer(serializers.ModelSerializer):
+
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['id', 'name']
@@ -20,5 +21,6 @@ class CategoeySerializer(serializers.ModelSerializer):
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
-        field = ['id', 'name', 'image']
+        fields = ['id', 'name', 'image']
         read_only_fields = ['id']
+
